@@ -1,0 +1,21 @@
+name: KiCad Checks & Artifacts
+
+on: ['pull_request']
+
+env:
+  EESCHEMA: "*.kicad_sch"
+  PCBNEW: "*.kicad_pcb"
+  OUT_DIR: .
+
+jobs:
+  partity-check:
+    name: Parity Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    container:
+      image: setsoft/kicad_auto:ki6
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run kibot parity check
+        run: |
+          ./.github/run_parity_check.sh
