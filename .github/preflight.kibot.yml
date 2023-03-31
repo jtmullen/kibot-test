@@ -1,0 +1,19 @@
+kibot:
+  version: 1
+  
+global:
+  drc_exclusions_workaround: true
+
+## Tasks to do before output
+preflight:
+  update_xml:  ## Ensure PCB and Schematic match
+    check_pcb_parity: true
+    enabled: true
+  run_erc: true
+  run_drc: true
+  check_zone_fills: true
+  ignore_unconnected: false
+  filters: 
+    - filter: 'Ignore New v7 solder_mask_bridge error'
+      error: 'solder_mask_bridge'
+      
