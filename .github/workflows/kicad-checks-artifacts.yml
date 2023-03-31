@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     container:
-      image: setsoft/kicad_auto:dev_1.6.2-69c2890_k6.0.11_d11.6
+      image: ghcr.io/inti-cmnb/kicad6_auto:dev_1.6.2-69c2890_k6.0.11_d11.6
     steps:
       - uses: actions/checkout@v3
       - name: Run kibot parity check
